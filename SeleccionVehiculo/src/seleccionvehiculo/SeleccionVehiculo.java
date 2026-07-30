@@ -20,7 +20,11 @@ import java.util.Scanner;
  *    b. Doble 
  * 3. Condiciones
  *    a. Tipos de Condiciones
- *           i. > -> mayor
+ *           i.  >  -> mayor
+ *           ii. <  -> menor
+ *           iii.>= -> menor o igual
+ *           iv. <= -> igual (son dos signos iguales juntos)
+ *           v.  != -> distinto
  *    b. Tipos de Comparacion
  */
 public class SeleccionVehiculo {
@@ -69,6 +73,11 @@ public class SeleccionVehiculo {
             System.out.println("Uyyy ... eres un anticlimatico");
             System.out.println("Calentamiento Global");
         }   
+        
+        System.out.print("");
+        
+        System.out.print("Tu carro es energeticamente eficiente?");
+        respuestaCadena = entrada.nextLine();
             
         System.out.println("");
         /*
