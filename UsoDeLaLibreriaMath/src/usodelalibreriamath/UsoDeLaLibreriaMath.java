@@ -26,8 +26,8 @@ public class UsoDeLaLibreriaMath {
         System.out.println("Bienvenido");
         
         System.out.println("Ingrese el radio del circulo:  ");
-        radio = entrada.nextDouble();
-        System.out.println("Radio");
+          radio = entrada.nextDouble();
+          System.out.println("Radio");
         
         area = Math.PI * Math.pow(radio, 2);
         circunferencia = 2 * Math.PI * radio;
