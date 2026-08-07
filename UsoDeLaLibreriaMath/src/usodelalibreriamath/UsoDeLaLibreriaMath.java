@@ -36,8 +36,6 @@ public class UsoDeLaLibreriaMath {
         System.out.printf("La circunferencia del circulo es: %.2f%n", circunferencia);
        
         
-        entrada.close();
-        
         
     }//Fin
     
