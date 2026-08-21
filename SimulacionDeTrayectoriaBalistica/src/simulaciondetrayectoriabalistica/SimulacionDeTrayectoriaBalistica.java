@@ -85,26 +85,24 @@ public class SimulacionDeTrayectoriaBalistica {
 
             
             
-        for (int t = 1; t <= 10; t ++){
+        for (int t = 1; t <= 10; t++){
            
             
             altura = velocidad * Math.sin(Math.toRadians(angulo)) * t
                      - (0.5 * gravedad * Math.pow(t, 2));
             
             if(altura < 0 ){
-            System.out.println("Segundo" + t + " = " + altura + "metros");
+            System.out.printf("Segundo %d = %.2f metros\n", t , altura);
             System.out.println("El proyectil acaba de impactar en el suelo");
             break;
             
-            }else if ( t == 10 || altura > 
-            (velocidad * Math.sin(Math.toRadians(angulo)) * (t + 1)
-            - (0.5 * gravedad * Math.pow(t + 1, 2)))) {
+            }else if ( t == segundoMaximo) {
                 
-                System.out.println("Segundo " + t + " = " + altura + "metros");
+                System.out.printf("Segundo %d = %.2f metros\n", t , altura);
                 System.out.println("El proyectil alcanza su altura maxima estimada.");
             
             }else {
-                System.out.println("Segundo" + t + " = " + altura + "metros");
+                System.out.printf("Segundo %d = %.2f metros\n", t , altura);
             }
             
             
