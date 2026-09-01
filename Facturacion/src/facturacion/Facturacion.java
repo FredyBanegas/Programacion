@@ -55,7 +55,7 @@ public class Facturacion {
         
         
     
-        
+        //2da Funcion
         System.out.print("Ingresa el Precio del Producto: ");
         precioProducto = scan.nextInt();
         precioProducto = ValidacionNumerica(precioProducto,scan);
@@ -65,23 +65,14 @@ public class Facturacion {
         cantidad = ValidacionNumerica(cantidad,scan);
         
         subTotal = precioProducto * cantidad;
-        if(subTotal >100){
-            descuento = subTotal *0.10;
-        }
-        else{
-            descuento = 0;
-        }
+       
+        //3re Funacion
+        total = Calculos(subTotal,ISV);
         
-        impuesto = (subTotal - descuento)*ISV;
-        
-        total = subTotal - descuento + impuesto;
-        
+        //4to Funacion
         ResultadoFactura(subTotal,descuento,impuesto,total);
         
-        System.out.printf("\nSubtotal: %.2f",subTotal);
-        System.out.printf("\nDescuento: %.2f",descuento);
-        System.out.printf("\nImpuesto: %.2f",impuesto);
-        System.out.printf("\nPrecio a Pagar: %.2f",total);
+     
     }//fin de main
     
    
@@ -117,12 +108,32 @@ public class Facturacion {
         return numeroValido;
     }//Fin funcion ValidacionNumerica
     
+    public static double Calculos(double sub, double valor){
+        double resultadoCalculo = 0;
+        double descuento = 0;
+        double impuesto = 0;
+        
+         if(sub >100){
+            descuento = sub *0.10;
+        }
+        else{
+            descuento = 0;
+        }
+         
+         impuesto = (sub - descuento)*valor;
+        resultadoCalculo = sub - descuento + impuesto;
+        
+        return resultadoCalculo;
+    }
+    
     public static void ResultadoFactura(double sub, double des, double imp, double tot){
+        
         
         System.out.printf("\nSubtotal: %.2f",sub);
         System.out.printf("\nDescuento: %.2f",des);
         System.out.printf("\nImpuesto: %.2f",imp);
         System.out.printf("\nPrecio a Pagar: %.2f",tot);
+        
     }//Fin Funcion ResultadoFactura
     
 }
