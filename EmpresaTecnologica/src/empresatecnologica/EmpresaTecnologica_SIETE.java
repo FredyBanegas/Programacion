@@ -70,9 +70,9 @@ public class EmpresaTecnologica_SIETE {
         double totalGeneral = 0;
 
         // 1. PROCESAMIENTO DE PRODUCTOS FÍSICOS
-        ImpresionLineaSeparadora();
-        System.out.println("       MÓDULO DE PRODUCTOS FÍSICOS");
-        ImpresionLineaSeparadora();
+        
+        Encabezado ("MÓDULO DE PRODUCTOS FISICOS");
+        
         
         System.out.print("Ingrese el nombre del producto: ");
         String producto = sc.nextLine();
@@ -92,6 +92,7 @@ public class EmpresaTecnologica_SIETE {
         // 2. PROCESAMIENTO DE SERVICIOS
         
         Encabezado ("MÓDULO DE SERVICIOS DE INSTALACIÓN");
+        sc.nextLine();//Limpiar buffer
         
         System.out.print("Ingrese el tipo de servicio: ");
         String servicio = sc.nextLine();
@@ -105,19 +106,23 @@ public class EmpresaTecnologica_SIETE {
         
         // Cálculos matemáticos mezclados (¡Código duplicado!)
          valorConDescuentoServ = CalculoDescuento(descServicio, tarifaServicio);
-         impuestoProd = CalculoImpuesto(valorConDescuentoServ);
+         impuestoServ = CalculoImpuesto(valorConDescuentoServ);
          
          subtotalServicios = valorConDescuentoServ + impuestoServ;
 
          
         // 3. REPORTE FINAL
         totalGeneral = subtotalProductos + subtotalServicios;
+        
         Encabezado ("RESUMEN DE COTIZACIÓN");
         
         // Formato de impresión repetido
+        
         ImpresionLineaFactura ("Total" + producto, subtotalProductos);
         ImpresionLineaFactura ("Total" + servicio, subtotalServicios);
+        
         System.out.println("-------------------------------------------------");
+        
         ImpresionLineaFactura ("TOTAL A PAGAR", totalGeneral);
         ImpresionLineaSeparadora();
     }//Fin de Main
@@ -138,7 +143,7 @@ public class EmpresaTecnologica_SIETE {
        Scanner sc = new Scanner (System.in);
        
        while (montoValidado < 0) {
-            System.out.printf("Ingrese el precio de %s (no negativo): Lps. ",tipo);
+            System.out.printf("Ingrese el precio del %s (no negativo): Lps. ",tipo);
             montoValidado = sc.nextDouble();
             if (montoValidado < 0) {
                 System.out.println("Error: El valor no puede ser negativo.");
@@ -149,7 +154,7 @@ public class EmpresaTecnologica_SIETE {
        
    }//Fin  Funcion ValidacionMontoOBtenido
    
-   public static double CalculoImpuesto (double monto){
+   public static double CalculoImpuesto(double monto){
        double CalculoTemporal = 0;
        
        CalculoTemporal = monto * 0.15;
@@ -168,5 +173,5 @@ public class EmpresaTecnologica_SIETE {
    
    public static void ImpresionLineaFactura(String concepto, double valor){
       System.out.printf("- %-30s : Lps. %.2f\n", concepto, valor); 
-   }//Fin Funcion 
+   }//Fin Funcion ImpresionLineaFcatura 
 }//Fin de Class
