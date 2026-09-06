@@ -129,6 +129,7 @@ public class Facturacion {
     public static void ResultadoFactura(double sub, double des, double imp, double tot){
         
         
+        
         System.out.printf("\nSubtotal: %.2f",sub);
         System.out.printf("\nDescuento: %.2f",des);
         System.out.printf("\nImpuesto: %.2f",imp);
