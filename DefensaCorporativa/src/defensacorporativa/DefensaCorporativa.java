@@ -57,21 +57,33 @@ public class DefensaCorporativa {
         Scanner scan = new Scanner(System.in);    
         
         final int SERVIDORES = 8;
+        final int FILA =0;
+        final int COLU = 0;
         int[] cantidadIntentos = new int[SERVIDORES];
         int sumaAtaques = 0;
         int posicionServidor = 0;
         double promedio = 0;
+        
+        int [][] nivelAmenaza = new int[FILA][COLU];
 
         
         for (int i = 0; i < SERVIDORES; i++){
-           System.out.print("Ingresa cantidad de intentos: ");
+          System.out.print("Ingresa cantidad de intentos: ");
            cantidadIntentos[i] = ValidacionNumeroIngresado(scan);
         }//Fin Ciclo For
         
-        sumaAtaques = TotalAtaquesRepelidos(cantidadIntentos);
-        posicionServidor = ServidorMasAtacado(cantidadIntentos);
-        promedio = CalculoPromedio(sumaAtaques,SERVIDORES);
-        ImpresionResultados (sumaAtaques,posicionServidor,promedio); 
+        //sumaAtaques = TotalAtaquesRepelidos(cantidadIntentos);
+        //posicionServidor = ServidorMasAtacado(cantidadIntentos);
+        //promedio = CalculoPromedio(sumaAtaques,SERVIDORES);
+        //ImpresionResultados (sumaAtaques,posicionServidor,promedio); 
+        
+        System.out.println("--------------------");
+        System.out.println("\tFase 2");
+        System.out.println("--------------------");
+        
+        nivelAmenaza = IngresoDatos(scan, FILA, COLU);
+        MostarNivelesAmenaza(nivelAmenaza);        
+        niveleamenaz
     }//Fin de Main
     
     public static int ValidacionNumeroIngresado(Scanner sc){
@@ -147,5 +159,40 @@ public class DefensaCorporativa {
         
     }//Fin ImpresionResultados    
         
+    public static int [][] IngresoDatos(Scanner scan, int fil, int col){
+        int[][] arregloTemp = new int [fil][col];
+        
+        for (int i = 0; i < fil; i++){
+            for (int j = 0; j < col; j++){
+                 arregloTemp[i][j]= scan.nextInt();          
+            }//Fin Columna
+       MostarNivelesAmenaza(arregloTemp);
+       }//Fin Fila
+       return arregloTemp;
+    }//Fin de Funcion IngresoDatosAmenaza
     
+    public static void MostarNivelesAmenaza(int[][]arreglo){
+            System.out.println("----------------------");
+        for (int i = 0; i < arreglo.length; i++){          
+            for (int j = 0; j < arreglo[i].length; j++){
+                System.out.printf("#Pos Equipo:%d  %d\n",i+1,j+1);
+                System.out.printf("Valor Amenaza: d%\n",arreglo[i][j]);
+            }//Fin Columna
+            System.out.println("|");
+            System.out.println("\n----------------------");
+        }//Fin Fila
+    }//Fin Funcion MostrarNivelesAmenzas  
+    
+    public static void NivelesCritico(int [][] arreglo){
+        for (int i = 0; i < arreglo.length; i++){
+            for (int j =0; j< arreglo[i].length; j++){
+               if(arreglo [i][j]>=85){
+                 System.out.println ("Alerta Critica");
+                 System.out.printf ("Posicion Equipo: %d,%d\n", i+1,j+1);
+                 System.out.printf ("Valor: %d\n", arreglo[i][j]);
+                 System.out.println ("---------------");
+               }
+            }//Fin For columna
+        }
+        }
 }//Fin Class
